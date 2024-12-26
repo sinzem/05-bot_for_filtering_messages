@@ -32,6 +32,7 @@ function getChannelId(update) {
     } else if (peerId.userId) {
         chatId = Number(peerId.userId); 
     }
+    
     return chatId;
 }
 

@@ -15,14 +15,14 @@ async function filterMessages(client,
                 const senderId = getSenderId(event);
            
                 let senderDataMessage;
-                if (senderId === "ADMIN") {
+                if (senderId && senderId === "ADMIN") {
                     senderDataMessage = `position: channel ADMIN\nid: ${fromGroupId}`; 
-                } else {
+                } else if (senderId) {
                     const senderEntity = await getEntity(client, senderId);
                     senderDataMessage = `name: ${senderEntity.firstName}\nsurname: ${senderEntity.lastName}\nusername: ${senderEntity.username}\nphone: ${senderEntity.phone}\nid: ${senderId}`;
                 }
                 let responseMessage = `<b>Message text:</b>\n${message}\n<b>Group or person:</b>\n${channel}\n<b>Sender details:</b>\n${senderDataMessage}`;
-                sendResponse(client, chatForResponse, responseMessage);
+                await sendResponse(client, chatForResponse, responseMessage);
             }
 }
 
