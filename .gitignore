@@ -1,4 +1,6 @@
 .idea
-node_modules
 .env
 draft.js
+
+/node_modules
+/sortingSettings/trackedChats1.js
